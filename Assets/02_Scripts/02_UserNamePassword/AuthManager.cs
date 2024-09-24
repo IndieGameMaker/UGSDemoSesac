@@ -18,7 +18,10 @@ namespace AuthUserNamePassword
             await UnityServices.InitializeAsync();
             Debug.Log("UGS 초기화");
 
+            signUpButton.onClick.AddListener(async () =>
+            {
 
+            });
         }
 
         // 회원가입 로직
