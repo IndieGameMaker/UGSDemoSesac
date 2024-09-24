@@ -22,6 +22,11 @@ namespace AuthUserNamePassword
             {
                 await SignUpAsync(userNameIf.text, passwordIf.text);
             });
+
+            signInButton.onClick.AddListener(async () =>
+            {
+                await SignInAsync(userNameIf.text, passwordIf.text);
+            });
         }
 
         // 회원가입 로직
