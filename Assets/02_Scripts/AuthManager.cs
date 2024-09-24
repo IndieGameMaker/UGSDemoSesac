@@ -9,7 +9,11 @@ public class AuthManager : MonoBehaviour
 {
     [SerializeField] private Button signinButton;
     [SerializeField] private Button signoutButton;
+    [SerializeField] private Button playerNameSaveButton;
+
     [SerializeField] private TMP_Text messageText;
+    [SerializeField] private TMP_InputField playerNameIf;
+
 
     private async void Awake()
     {
@@ -31,6 +35,16 @@ public class AuthManager : MonoBehaviour
             // 로그아웃
             AuthenticationService.Instance.SignOut();
         });
+        // 플레이어 이름 변경 버튼 이벤트 연결
+        /*
+            50자
+            공백X
+            Zack#1234
+        */
+        playerNameSaveButton.onClick.AddListener(async () =>
+        {
+            await SetPlayerNameAsync(playerNameIf.text);
+        });
     }
 
     // 익명 로그인 처리
@@ -51,7 +65,8 @@ public class AuthManager : MonoBehaviour
         // 로그인 성공했을 때 호출되는 이벤트
         AuthenticationService.Instance.SignedIn += () =>
         {
-            messageText.text = $"Player Id : {AuthenticationService.Instance.PlayerId}\n";
+            messageText.text += $"Player Id : {AuthenticationService.Instance.PlayerId}\n";
+            messageText.text += $"Player Name : {AuthenticationService.Instance.PlayerName}\n";
         };
 
         AuthenticationService.Instance.SignedOut += () =>
@@ -65,17 +80,17 @@ public class AuthManager : MonoBehaviour
         };
     }
 
-    /*
-        C# Theard Programming
-
-        Async / Await
-
-        async void/Task 함수명()
+    private async Task SetPlayerNameAsync(string playerName)
+    {
+        try
         {
-            로직1;
-            await 작업;
-            로직2;
+            await AuthenticationService.Instance.UpdatePlayerNameAsync(playerName);
+            var _playerName = AuthenticationService.Instance.PlayerName;
+            messageText.text += $"{_playerName} is updated\n";
         }
-    
-    */
+        catch (AuthenticationException e)
+        {
+            Debug.Log(e.Message);
+        }
+    }
 }
