@@ -18,10 +18,19 @@ namespace AuthUnityPlayer
 
             // 로그인 후 콜백 연결
             PlayerAccountService.Instance.SignedIn += OnSignedIn;
+            PlayerAccountService.Instance.SignedOut += () =>
+            {
+                Debug.Log("로그 아웃!");
+            };
 
             signInButton.onClick.AddListener(async () =>
             {
                 await PlayerAccountService.Instance.StartSignInAsync();
+            });
+
+            signOutButton.onClick.AddListener(() =>
+            {
+                PlayerAccountService.Instance.SignOut();
             });
         }
 
