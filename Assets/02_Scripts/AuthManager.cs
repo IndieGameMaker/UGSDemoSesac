@@ -47,6 +47,11 @@ public class AuthManager : MonoBehaviour
         {
             messageText.text = "Signed Out";
         };
+
+        AuthenticationService.Instance.Expired += () =>
+        {
+            messageText.text = "Player Session was expired!";
+        };
     }
 
     /*
