@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7008d203cebbe4f61842847c91503c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  siginInButton: {fileID: 3239657903082655512}
+  signInButton: {fileID: 3239657903082655512}
   signOutButton: {fileID: 8047078803399484016}
   playerNameSaveButton: {fileID: 4345122465478349613}
   playerNameIf: {fileID: 7998892812780982565}
