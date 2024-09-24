@@ -38,6 +38,8 @@ namespace AuthUnityPlayer
         private async void OnSignedIn()
         {
             string accessToken = PlayerAccountService.Instance.AccessToken;
+            Debug.Log($"AuthenticationService.Instance.IsSignedIn : {AuthenticationService.Instance.IsSignedIn}");
+            if (AuthenticationService.Instance.IsSignedIn) return;
             await AuthenticationService.Instance.SignInWithUnityAsync(accessToken);
             Debug.Log("로그인 완료");
         }
