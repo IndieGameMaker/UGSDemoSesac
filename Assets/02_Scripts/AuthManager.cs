@@ -14,6 +14,10 @@ public class AuthManager : MonoBehaviour
     {
         // USG 초기화
         await UnityServices.InitializeAsync();
+
+        // 이벤트 초기화
+        EventConfig();
+
         // 버튼 이벤트 연결
         signinButton.onClick.AddListener(async () =>
         {
