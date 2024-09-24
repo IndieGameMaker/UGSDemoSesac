@@ -44,17 +44,17 @@ public class AuthManager : MonoBehaviour
         // 로그인 성공했을 때 호출되는 이벤트
         AuthenticationService.Instance.SignedIn += () =>
         {
-            messageText.text = $"Player Id : {AuthenticationService.Instance.PlayerId}";
+            messageText.text = $"Player Id : {AuthenticationService.Instance.PlayerId}\n";
         };
 
         AuthenticationService.Instance.SignedOut += () =>
         {
-            messageText.text = "Signed Out";
+            messageText.text = "Signed Out\n";
         };
 
         AuthenticationService.Instance.Expired += () =>
         {
-            messageText.text = "Player Session was expired!";
+            messageText.text = "Player Session was expired!\n";
         };
     }
 
