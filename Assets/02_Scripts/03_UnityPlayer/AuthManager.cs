@@ -1,19 +1,12 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace AuthUnityPlayer
 {
     public class AuthManager : MonoBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        [SerializeField] private Button siginInButton, signOutButton, playerNameSaveButton;
+        [SerializeField] private TMP_InputField playerNameIf;
     }
 }
