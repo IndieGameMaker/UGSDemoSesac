@@ -44,5 +44,21 @@ namespace AuthUserNamePassword
             }
         }
         // 로그인 로직
+        private async Task SignInAsync(string userName, string password)
+        {
+            try
+            {
+                await AuthenticationService.Instance.SignInWithUsernamePasswordAsync(userName, password);
+                Debug.Log("로그인 완료");
+            }
+            catch (AuthenticationException e)
+            {
+                Debug.LogException(e);
+            }
+            catch (RequestFailedException e)
+            {
+                Debug.LogException(e);
+            }
+        }
     }
 }
