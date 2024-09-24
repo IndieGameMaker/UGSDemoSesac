@@ -86,6 +86,8 @@ public class AuthManager : MonoBehaviour
         {
             await AuthenticationService.Instance.UpdatePlayerNameAsync(playerName);
             var _playerName = AuthenticationService.Instance.PlayerName;
+            // Zack#1234
+            _playerName = _playerName.Split('#')[0];
             messageText.text += $"{_playerName} is updated\n";
         }
         catch (AuthenticationException e)

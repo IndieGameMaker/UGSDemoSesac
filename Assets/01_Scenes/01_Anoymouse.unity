@@ -1989,7 +1989,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   signinButton: {fileID: 694993201}
   signoutButton: {fileID: 444474744}
+  playerNameSaveButton: {fileID: 777574729}
   messageText: {fileID: 307879824}
+  playerNameIf: {fileID: 231309064}
 --- !u!4 &1552228297
 Transform:
   m_ObjectHideFlags: 0
