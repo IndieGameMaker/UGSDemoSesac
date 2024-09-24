@@ -66,7 +66,7 @@ public class AuthManager : MonoBehaviour
         AuthenticationService.Instance.SignedIn += () =>
         {
             messageText.text += $"Player Id : {AuthenticationService.Instance.PlayerId}\n";
-            messageText.text += $"Player Name : {AuthenticationService.Instance.PlayerName}\n";
+            messageText.text += $"Player Name : {AuthenticationService.Instance.PlayerName.Split('#')[0]}\n";
         };
 
         AuthenticationService.Instance.SignedOut += () =>
