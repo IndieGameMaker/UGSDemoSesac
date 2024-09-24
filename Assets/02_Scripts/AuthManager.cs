@@ -28,12 +28,25 @@ public class AuthManager : MonoBehaviour
         try
         {
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            Debug.Log("익명 로그인 성공 !");
         }
         catch (AuthenticationException e)
         {
             Debug.Log(e.Message);
         }
+    }
+
+    private void EventConfig()
+    {
+        // 로그인 성공했을 때 호출되는 이벤트
+        AuthenticationService.Instance.SignedIn += () =>
+        {
+            messageText.text = $"Player Id : {AuthenticationService.Instance.PlayerId}";
+        };
+
+        AuthenticationService.Instance.SignedOut += () =>
+        {
+            messageText.text = "Signed Out";
+        };
     }
 
     /*
