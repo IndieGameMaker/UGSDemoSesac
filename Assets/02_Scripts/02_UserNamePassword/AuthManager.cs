@@ -20,11 +20,13 @@ namespace AuthUserNamePassword
 
             signUpButton.onClick.AddListener(async () =>
             {
-
+                await SignUpAsync(userNameIf.text, passwordIf.text);
             });
         }
 
         // 회원가입 로직
+        // UserName : 대소문자 구별없음, 3~20자, - @
+        // Password : 대소문자 구별함, 8자 ~ 30자, 대문자 1, 소문자 1, 숫자 1, 특수문자 1 (-, @, #, !)
         private async Task SignUpAsync(string userName, string password)
         {
             try
