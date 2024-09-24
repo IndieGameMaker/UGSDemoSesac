@@ -1104,6 +1104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d90fbe35c76a4fa3bd6d18e96b45257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  signinButton: {fileID: 694993201}
+  messageText: {fileID: 307879824}
 --- !u!4 &1552228297
 Transform:
   m_ObjectHideFlags: 0
